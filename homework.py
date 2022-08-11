@@ -9,12 +9,14 @@ from dotenv import load_dotenv
 
 
 class HTTPException(Exception):
+    """Ошибка HTTP."""
+
     pass
 
 
 logging.basicConfig(
     filename='log.txt',
-    filemode= 'w',
+    filemode='w',
     level=logging.DEBUG,
     format='%(asctime)s, %(lineno)s, %(levelname)s, %(message)s',
 )
@@ -54,14 +56,14 @@ def send_message(bot, message):
 
 
 def get_api_answer(current_timestamp):
-    """Делает запрос к единственному эндпоинту API-сервиса. 
-    В качестве параметра функция получает временную метку. 
-    В случае успешного запроса должна вернуть ответ API, 
-    преобразовав его из формата JSON к типам данных Python."""
+    """Делает запрос к единственному эндпоинту API-сервиса.
+    В качестве параметра функция получает временную метку.
+    В случае успешного запроса должна вернуть ответ API,
+    преобразовав его из формата JSON к типам данных Python.
+    """
     timestamp = current_timestamp
     params = {'from_date': timestamp}
     try:
-    #    logger.info('Отправка запроса')
         response = requests.get(
             ENDPOINT,
             headers=HEADERS,
@@ -105,8 +107,10 @@ def check_response(response):
 
 
 def parse_status(homework):
-    """Извлекает из информации о конкретной 
-    домашней работе статус этой работы."""
+    """Извлекает статус.
+    Из информации о конкретной
+    домашней работе извлекает статус этой работы.
+    """
     if 'homework_name' not in homework:
         raise KeyError('Отсутствует ключ "homework_name" в ответе API')
     if 'status' not in homework:
@@ -122,8 +126,7 @@ def parse_status(homework):
 
 
 def check_tokens():
-    """Проверка доступности переменных окружения,
-     необходимых для работы программы."""
+    """Проверка доступности переменных окружения."""
     if all([PRACTICUM_TOKEN, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID]):
         return True
 
@@ -158,4 +161,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
