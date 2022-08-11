@@ -1,0 +1,6 @@
+2022-08-11 14:19:28,773, 133, DEBUG, Bot open
+2022-08-11 14:19:28,773, 1007, DEBUG, Starting new HTTPS connection (1): practicum.yandex.ru:443
+2022-08-11 14:19:28,994, 465, DEBUG, https://practicum.yandex.ru:443 "GET /api/user_api/homework_statuses/?from_date=14000000 HTTP/1.1" 200 None
+2022-08-11 14:19:29,009, 129, DEBUG, Entering: send_message
+2022-08-11 14:19:29,264, 131, DEBUG, {'date': 1660216769, 'chat': {'first_name': 'Sergey', 'id': 5178761804, 'last_name': 'O', 'type': 'private'}, 'channel_chat_created': False, 'supergroup_chat_created': False, 'text': 'Изменился статус проверки работы "Osa140564__hw05_final.zip". Работа проверена: ревьюеру всё понравилось. Ура!', 'new_chat_photo': [], 'new_chat_members': [], 'delete_chat_photo': False, 'message_id': 72, 'group_chat_created': False, 'photo': [], 'entities': [], 'caption_entities': [], 'from': {'first_name': 'TelegramPracticumBot', 'username': 'TelegosapracticumBot', 'id': 5548683692, 'is_bot': True}}
+2022-08-11 14:19:29,264, 132, DEBUG, Exiting: send_message
