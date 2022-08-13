@@ -1,46 +1,11 @@
-2022-08-12 10:42:33,762, 138, DEBUG, Bot open
-2022-08-12 10:42:33,762, 130, DEBUG, Начало проверки переменных start
-2022-08-12 10:42:33,762, 132, DEBUG, Проверка переменных пройдена stop
-2022-08-12 10:42:33,772, 1007, DEBUG, Starting new HTTPS connection (1): practicum.yandex.ru:443
-2022-08-12 10:42:34,563, 465, DEBUG, https://practicum.yandex.ru:443 "GET /api/user_api/homework_statuses/?from_date=1660290153 HTTP/1.1" 200 42
-2022-08-12 10:42:34,563, 92, DEBUG, Проверяем ответ API
-2022-08-12 10:42:34,563, 104, ERROR, Список пуст
-2022-08-12 10:42:34,563, 157, ERROR, Список пуст
-2022-08-12 10:42:34,572, 129, DEBUG, Entering: send_message
-2022-08-12 10:42:34,793, 131, DEBUG, {'caption_entities': [], 'channel_chat_created': False, 'text': 'Список пуст', 'new_chat_photo': [], 'message_id': 87, 'photo': [], 'delete_chat_photo': False, 'chat': {'id': 5178761804, 'type': 'private', 'last_name': 'O', 'first_name': 'Sergey'}, 'entities': [], 'group_chat_created': False, 'new_chat_members': [], 'date': 1660290155, 'supergroup_chat_created': False, 'from': {'is_bot': True, 'id': 5548683692, 'first_name': 'TelegramPracticumBot', 'username': 'TelegosapracticumBot'}}
-2022-08-12 10:42:34,793, 132, DEBUG, Exiting: send_message
-2022-08-12 10:52:34,800, 1007, DEBUG, Starting new HTTPS connection (1): practicum.yandex.ru:443
-2022-08-12 10:52:35,435, 465, DEBUG, https://practicum.yandex.ru:443 "GET /api/user_api/homework_statuses/?from_date=1660290155 HTTP/1.1" 200 42
-2022-08-12 10:52:35,440, 92, DEBUG, Проверяем ответ API
-2022-08-12 10:52:35,440, 104, ERROR, Список пуст
-2022-08-12 10:52:35,440, 157, ERROR, Список пуст
-2022-08-12 11:02:35,454, 1007, DEBUG, Starting new HTTPS connection (1): practicum.yandex.ru:443
-2022-08-12 11:02:36,519, 465, DEBUG, https://practicum.yandex.ru:443 "GET /api/user_api/homework_statuses/?from_date=1660290755 HTTP/1.1" 200 42
-2022-08-12 11:02:36,539, 92, DEBUG, Проверяем ответ API
-2022-08-12 11:02:36,539, 104, ERROR, Список пуст
-2022-08-12 11:02:36,539, 157, ERROR, Список пуст
-2022-08-12 11:12:36,563, 1007, DEBUG, Starting new HTTPS connection (1): practicum.yandex.ru:443
-2022-08-12 11:12:36,718, 465, DEBUG, https://practicum.yandex.ru:443 "GET /api/user_api/homework_statuses/?from_date=1660291357 HTTP/1.1" 200 42
-2022-08-12 11:12:36,728, 92, DEBUG, Проверяем ответ API
-2022-08-12 11:12:36,728, 104, ERROR, Список пуст
-2022-08-12 11:12:36,728, 157, ERROR, Список пуст
-2022-08-12 11:22:36,754, 1007, DEBUG, Starting new HTTPS connection (1): practicum.yandex.ru:443
-2022-08-12 11:22:36,960, 465, DEBUG, https://practicum.yandex.ru:443 "GET /api/user_api/homework_statuses/?from_date=1660291957 HTTP/1.1" 200 42
-2022-08-12 11:22:36,967, 92, DEBUG, Проверяем ответ API
-2022-08-12 11:22:36,968, 104, ERROR, Список пуст
-2022-08-12 11:22:36,968, 157, ERROR, Список пуст
-ЃС‚, main, 157
-2022-08-12 11:24:36,385, DEBUG, РџСЂРѕРІРµСЂСЏРµРј РѕС‚РІРµС‚ API, check_response, 92
-2022-08-12 11:24:36,386, DEBUG, РћС‚РІРµС‚ API РІ С„РѕСЂРјР°С‚Рµ РґР°РЅРЅС‹С… Python, check_response, 102
-2022-08-12 11:24:36,397, DEBUG, РџСЂРѕРІРµСЂСЏРµРј РѕС‚РІРµС‚ API, check_response, 92
-2022-08-12 11:24:36,397, DEBUG, РћС‚РІРµС‚ API РІ С„РѕСЂРјР°С‚Рµ РґР°РЅРЅС‹С… Python, check_response, 102
-2022-08-12 11:24:36,410, DEBUG, РџСЂРѕРІРµСЂСЏРµРј РѕС‚РІРµС‚ API, check_response, 92
-2022-08-12 11:24:36,410, DEBUG, РћС‚РІРµС‚ API РІ С„РѕСЂРјР°С‚Рµ РґР°РЅРЅС‹С… Python, check_response, 102
-2022-08-12 11:24:36,415, DEBUG, РџСЂРѕРІРµСЂСЏРµРј РѕС‚РІРµС‚ API, check_response, 92
-2022-08-12 11:24:36,415, DEBUG, РћС‚РІРµС‚ API РІ С„РѕСЂРјР°С‚Рµ РґР°РЅРЅС‹С… Python, check_response, 102
-2022-08-12 11:24:36,421, DEBUG, РџСЂРѕРІРµСЂСЏРµРј РѕС‚РІРµС‚ API, check_response, 92
-2022-08-12 11:24:36,421, ERROR, РќРµС‚ РєР»СЋС‡Р° homeworks, check_response, 98
-2022-08-12 11:24:36,427, DEBUG, РџСЂРѕРІРµСЂСЏРµРј РѕС‚РІРµС‚ API, check_response, 92
-2022-08-12 11:24:36,439, DEBUG, РџСЂРѕРІРµСЂСЏРµРј РѕС‚РІРµС‚ API, check_response, 92
-2022-08-12 11:24:36,449, DEBUG, РџСЂРѕРІРµСЂСЏРµРј РѕС‚РІРµС‚ API, check_response, 92
-2022-08-12 11:24:36,449, ERROR, РќРµС‚ РєР»СЋС‡Р° homeworks, check_response, 98
+2022-08-13 22:15:15,783, 135, DEBUG, Bot open
+2022-08-13 22:15:15,783, 127, DEBUG, Начало проверки переменных
+2022-08-13 22:15:15,783, 129, DEBUG, Проверка переменных пройдена
+2022-08-13 22:15:15,798, 1007, DEBUG, Starting new HTTPS connection (1): practicum.yandex.ru:443
+2022-08-13 22:15:16,218, 465, DEBUG, https://practicum.yandex.ru:443 "GET /api/user_api/homework_statuses/?from_date=1660418115 HTTP/1.1" 200 42
+2022-08-13 22:15:16,218, 89, DEBUG, Проверяем ответ API
+2022-08-13 22:15:16,218, 101, ERROR, Список пуст
+2022-08-13 22:15:16,234, 153, ERROR, Список пуст
+2022-08-13 22:15:16,234, 129, DEBUG, Entering: send_message
+2022-08-13 22:15:16,465, 131, DEBUG, {'text': 'Список пуст', 'supergroup_chat_created': False, 'new_chat_members': [], 'delete_chat_photo': False, 'channel_chat_created': False, 'new_chat_photo': [], 'photo': [], 'date': 1660418117, 'caption_entities': [], 'chat': {'id': 5178761804, 'type': 'private', 'first_name': 'Sergey', 'last_name': 'O'}, 'group_chat_created': False, 'entities': [], 'message_id': 91, 'from': {'is_bot': True, 'id': 5548683692, 'username': 'TelegosapracticumBot', 'first_name': 'TelegramPracticumBot'}}
+2022-08-13 22:15:16,466, 132, DEBUG, Exiting: send_message

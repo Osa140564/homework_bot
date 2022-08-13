@@ -9,14 +9,10 @@ import telegram
 from http import HTTPStatus
 
 from HTTP import ENDPOINT
+from exceptions import HTTPExceptionError, StatusNotApiError
 
 
-class HTTPException(Exception):
-    """Ошибка HTTP."""
-
-    pass
-
-
+RETRY_TIME = 600
 logging.basicConfig(
     filename='log.txt',
     filemode='w',
@@ -39,8 +35,7 @@ load_dotenv()
 PRACTICUM_TOKEN = os.getenv('TOKEN')
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
-
-HOMEWORK_STATUSES = {
+HOMEWORK_VERDICTES = {
     'approved': 'Работа проверена: ревьюеру всё понравилось. Ура!',
     'reviewing': 'Работа взята на проверку ревьюером.',
     'rejected': 'Работа проверена: у ревьюера есть замечания.'
@@ -73,7 +68,7 @@ def get_api_answer(current_timestamp):
     if response.status_code != HTTPStatus.OK:
         status_code = response.status_code
         logging.error(f'Ошибка {status_code}')
-        raise HTTPException(f'Ошибка {status_code}')
+        raise HTTPExceptionError(f'Ошибка {status_code}')
     try:
         return response.json()
     except ValueError:
@@ -114,12 +109,12 @@ def parse_status(homework):
     if 'homework_name' not in homework:
         raise KeyError('Отсутствует ключ "homework_name" в ответе API')
     if 'status' not in homework:
-        raise Exception('Отсутствует ключ "status" в ответе API')
+        raise StatusNotApiError('Отсутствует ключ "status" в ответе API')
     homework_name = homework['homework_name']
     homework_status = homework.get('status')
-    if homework_status not in HOMEWORK_STATUSES:
+    if homework_status not in HOMEWORK_VERDICTES:
         logger.error(f'Статус работы некорректен: {homework_status}')
-    verdict = HOMEWORK_STATUSES[homework_status]
+    verdict = HOMEWORK_VERDICTES[homework_status]
     return (
         f'Изменился статус проверки работы "{homework_name}". {verdict}'
     )
@@ -136,10 +131,9 @@ def check_tokens():
 def main():
     """Основная логика работы бота."""
     logging.debug('Bot open')
-    RETRY_TIME = 600
     bot = telegram.Bot(token=TELEGRAM_TOKEN)
     current_timestamp = int(time.time())
-    dict = ''
+    CACHE_MESSAGE = ''
     ERROR_CACHE_MESSAGE = ''
     if not check_tokens():
         logger.critical('Отсутствуют одна или несколько переменных окружения')
@@ -149,9 +143,9 @@ def main():
             response = get_api_answer(current_timestamp)
             current_timestamp = response.get('current_date')
             message = parse_status(check_response(response))
-            if message != dict:
+            if message != CACHE_MESSAGE:
                 send_message(bot, message)
-                dict = message
+                CACHE_MESSAGE = message
             time.sleep(RETRY_TIME)
         except Exception as error:
             logger.error(error)
@@ -159,7 +153,7 @@ def main():
             if message_er != ERROR_CACHE_MESSAGE:
                 send_message(bot, message_er)
                 ERROR_CACHE_MESSAGE = message_er
-        time.sleep(RETRY_TIME)
+            time.sleep(RETRY_TIME)
 
 
 if __name__ == '__main__':
