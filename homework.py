@@ -134,7 +134,7 @@ def main():
     bot = telegram.Bot(token=TELEGRAM_TOKEN)
     current_timestamp = int(time.time())
     CACHE_MESSAGE = ''
-    ERROR_CACHE_MESSAGE = ''
+    ERROR_CACHE_MESSAGE = 'Список пуст'
     if not check_tokens():
         logger.critical('Отсутствуют одна или несколько переменных окружения')
         raise Exception('Отсутствуют одна или несколько переменных окружения')
